@@ -31,6 +31,6 @@ ax.set_xticks([])
 ax.set_yticks([])
 
 plt.savefig('/Users/srwnlhmy/Desktop/plant_order.pdf')
-print("a")
+print("b")
 # Display the pie plot
 plt.show()
