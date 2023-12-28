@@ -12,4 +12,4 @@ df['code'] = df.apply(lambda row: f"{soil_coding.get(row['Soil'], '')}{fertilize
 
 df.to_excel("data/plants_coded.xlsx")
 
-print ("delte this")
+print ("delete!")
