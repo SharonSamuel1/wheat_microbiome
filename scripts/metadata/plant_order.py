@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-df = pd.read_excel('/Users/srwnlhmy/Github/wheat_microbiome/data/plant_order_11.23.xlsx')
+df = pd.read_excel('/home/projects/zeevid/samuelsh/wheat_microbiome/data/plant_order_11.23.xlsx')
 df=df.iloc[:,0:4]
 
 #df=df.iloc[:,0:3]

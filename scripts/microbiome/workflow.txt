@@ -1,0 +1,6 @@
+
+workflow- wheat microbiome experiment 2024
+
+1) multiQC in  the raw files
+2) trimmomatic
+3)multiQC on he trrimed files
