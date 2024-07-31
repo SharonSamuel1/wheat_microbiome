@@ -1,6 +1,11 @@
 
 workflow- wheat microbiome experiment 2024
 
-1) multiQC in  the raw files
-2) trimmomatic
+1) multiQC on the fastQC of the raw files (came with the seq results)- #./multiqc.sh /home/projects/zeevid/samuelsh/2023-Sharon/results/fastqc/ /home/projects/zeevid/samuelsh/2023-Sharon/results/microbiome/multiqc/
+2) trimmomatic- used script "trim_auto.py", run twice for A samples- "python /home/projects/zeevid/samuelsh/wheat_microbiome/scripts/microbiome/trim_auto.py -i /home/projects/zeevid/Data/Samples/2024-WildWheat/20240717_LH00211_0074_A222VG2LT1/ -e .fastq.gz -o results/PostTrim"
+and B samples - "python /home/projects/zeevid/samuelsh/wheat_microbiome/scripts/microbiome/trim_auto.py -i /home/projects/zeevid/Data/Samples/2024-WildWheat/20240717_LH00211_0073_B222WKTLT1/ -e .fastq.gz -o results/PostTrim"
+
+3)fastqc on trimmed files - bsub < scripts/microbiome/fastqc.sh
 3)multiQC on he trrimed files
+
+4)kmer count- using Dudi's script
