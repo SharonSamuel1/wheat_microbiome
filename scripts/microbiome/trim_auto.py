@@ -6,6 +6,7 @@ $$$ This script requiers the loading of env_getting_started env
 module load Java/17.0.6
 """
 
+
 import pathlib as pl
 from subprocess import Popen
 import argparse
@@ -54,5 +55,6 @@ for sample_folder in sample_folders:
 
 
 
-#run "python /home/projects/zeevid/samuelsh/wheat_microbiome/scripts/microbiome/trim_auto.py -i /home/projects/zeevid/Data/Samples/2024-WildWheat/20240717_LH00211_0074_A222VG2LT1 -e .fastq.gz -o results/PostTrim" (wd- '2023-Sharon')  
+#run "python //home/projects/zeevid/samuelsh/wheat_microbiome-2024/scripts/microbiome/trim_auto.py -i /home/projects/zeevid/Data/Samples/2024-WildWheat/20240717_LH00211_0074_A222VG2LT1 -e .fastq.gz -o results/PostTrim" (wd- '2023-Sharon')  
 
+#tun using sh file called trim_run_py.sh 
