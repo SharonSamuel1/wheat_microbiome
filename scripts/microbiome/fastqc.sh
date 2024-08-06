@@ -1,7 +1,7 @@
 #!/bin/bash
 #BSUB -J fastqc
 #BSUB -q short 
-#BSUB -R "rusage[mem=10G]"
+#BSUB -R "rusage[mem=1000MB]"
 module load FastQC/0.12.1-Java-11
 
 

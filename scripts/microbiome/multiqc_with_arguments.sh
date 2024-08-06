@@ -1,18 +1,14 @@
 
 #!/bin/bash
 
+module load MultiQC/1.12-foss-2021b
+
 samples_directory="$1"
 output_directory="$2"
 file_list="my_file_list.txt"
 
-if [ ! -d "$samples_directory" ]; then
-    echo "Error: The directory '$samples_directory' does not exist."
-    exit 1
-fi
-
 if [ ! -d "$output_directory" ]; then
-    echo "Error: The directory '$output_directory' does not exist."
-    exit 1
+    mkdir -p "$output_directory"
 fi
 
 for sample_dir in "${samples_directory}"/*/; do
@@ -31,8 +27,4 @@ fi
 
 rm -f "${file_list}"
 
-#before trim-
 
-#./run_multiqc.sh /home/projects/zeevid/samuelsh/2023-Sharon/results/fastqc/ /home/projects/zeevid/samuelsh/2023-Sharon/results/microbiome/multiqc/
-
-#

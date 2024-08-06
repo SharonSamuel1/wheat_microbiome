@@ -145,9 +145,10 @@ def count_file(in_fname, k, is_bam=False, is_fasta=False):
     else: # fastq
         import pysam
         for i, rec in enumerate(pysam.FastqFile(in_fname)):
-            if i in [10_000, 100_000, 1_000_000]:
-                ret[i] = ret['all'].copy()
+            #if i in [10_000, 100_000, 1_000_000]:  sharon- i deleted this' only wanted to consider all reads
+                #ret[i] = ret['all'].copy()
             ret['all'] += count_kmers(rec.sequence, k)
+
 
     clean_ret = {}
     for num_reads in ret.keys():

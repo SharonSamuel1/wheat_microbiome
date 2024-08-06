@@ -1,12 +1,12 @@
 #!/bin/bash
 #BSUB -J equal
 #BSUB -q short 
-#BSUB -R "rusage[mem=100 MB]"
+#BSUB -R "rusage[mem=100MB]"
 
 base_dir="results/microbiome/PostTrim"
 
 
-mismatched_samples_file="mismatched_samples.txt"
+mismatched_samples_file="results/mismatched_samples.txt"
 > "$mismatched_samples_file" # Clear the file if it exists
 
 # Function to count the number of reads in a FASTQ file

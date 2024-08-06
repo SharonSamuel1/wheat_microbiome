@@ -2,9 +2,19 @@
 workflow- wheat microbiome experiment 2024
 
 1)validate the fastq files- make sure it looks ok. udes the script "validate_fasta_seqkit.sh", result-"No samples with invalid reads."
-2) trimmomatic- used script "trim.sh" (not the py file), run twice for A samples (Job 25432) and B samples (Job 24752). Max Memory- 1658 MB. Run time- 163648 sec. 
-3)fastqc on trimmed files. 
-4)make sure that the number of reads in the "paired" files are the same in R1 and R2- using the script "equal_paired_n_reads.sh". results are in a file called "mismatched_samples.txt"
-3)multiQC on the fastqc-trrimed files
+2) trimmomatic- used script "trim.sh" (not the .py file), run twice for A samples (Job 25432) and B samples (Job 24752). Max Memory- 1658 MB. Run time- 163648 sec. 
+3)fastqc on trimmed files.     Job 569284 Max Memory 673 MB- at this point I did not divide the samples into jobs that run on parallel, run everytihng 
+together using fastqc.sh which took almost 24 hours
+4) to make sure that the number of reads in the "paired" files are the same in R1 and R2- using the script "equal_paired_n_reads.sh".
+   results are in a file called "mismatched_samples.txt"- empty file
+5)multiQC on the fastqc-trrimed files
+6) since many samples have many reads with polyG- I used cutadapt- to run all samples simultaneously I used the script submit_cutadapt.sh to call all samples o the script
+ "cutadapt_call.sh".  
+7) fastqc after cutadapt- a job per each file, used fastq_submit.sh to call "fastqc_call" per each sample.  max memory per sample job- ~500 MB
+   # sh scripts/microbiome/fastqc_submit.sh results/microbiome/PostCutAdapt results/microbiome/fastqc_after_cutadapt results/microbiome/logs/cutadapt_fastqc
+8) I also used Fastp on the raw files instead of trimmomatic and cutadapt. run twice for A samples (Job 995243) and B samples (Job 995802)-
+    note that these jobs submitted a job per sample- run "fastp_submit" to call "fastp_call" for each sample. max memory for each sample job- 2200 MB. 
+9) fastqc after fastp- a job per each file, used fastq_submit.sh to call "fastqc_call" per each sample. max memory per sample job- ~500 MB
+    # sh scripts/microbiome/fastqc_submit.sh results/microbiome/PostFastp results/microbiome/fastqc_after_fastp results/microbiome/logs/fastqc_after_fastp
 
-4)kmer count- using Dudi's script
+4)kmer count- using Dudi's script- on the paired reads after fastp. 
